@@ -15,8 +15,9 @@
 </head>
 
 <body>
+    <!-- Conteneur général / bloque la page à 1440px max et la centre -->
     <div class="main-container">
-        <!-- En-tête : logo et navigation principale -->
+        <!-- En-tête / logo et navigation principale -->
         <header>
             <a href="#" class="header-logo">
                 <img src="./images/logo/Booki.png" alt="Logo Booki" class="logo">
@@ -28,13 +29,15 @@
         </header>
 
         <main>
-            <!-- Section de recherche : titre, formulaire, filtres et information -->
+            <!-- Section de recherche / titre, formulaire, filtres et information -->
             <section class="search-section">
+                <!-- Titre principal de la pageet sous-titre -->
                 <div class="headline">
                     <h1 class="headline-title">Trouvez votre hébergement pour des vacances de rêve</h1>
                     <p class="headline-subtitle">En plein centre-ville ou en pleine nature</p>
                 </div>
 
+                <!-- Barre de recherche avec le bouton -->
                 <form class="search-form" action="#" method="get">
                     <span class="search-icon-location">
                         <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
@@ -46,6 +49,7 @@
                     </button>
                 </form>
 
+                <!-- Filtres -->
                 <div class="filters">
                     <h2 class="filters-title">Filtres</h2>
                     <div class="filters-list">
@@ -68,6 +72,7 @@
                     </div>
                 </div>
 
+                <!-- Message d'info -->
                 <div class="info-bar">
                     <div class="info-icon">
                         <i class="fa-solid fa-info" aria-hidden="true"></i>
@@ -76,12 +81,15 @@
                 </div>
             </section>
 
-            <!-- Bloc principal : Hébergements et Populaires -->
+            <!-- Bloc principal / Hébergements et Populaires.
+            En mobile, l'ordre est inversé en CSS -->
             <div class="hebergements-and-populaires">
                 <!-- Section Hébergements à Marseille -->
                 <section class="hebergements" id="hebergements">
                     <h2 class="section-title">Hébergements à Marseille</h2>
+                    <!-- Grille de 6 cartes -->
                     <div class="hebergements-cards">
+                        <!-- Les cartes -->
                         <a href="#">
                             <article class="card">
                                 <img src="./images/hebergements/fred-kleber.jpg" alt="Chambre de l'Hôtel du port avec deux lits simples">
@@ -90,6 +98,7 @@
                                         <h3 class="card-title">Hôtel du port</h3>
                                         <p class="card-subtitle">Nuit à partir de 52<span class="euro">€</span></p>
                                     </div>
+                                    <!-- Étoiles décoratives, la note est lue en texte par les lecteurs d'écran -->
                                     <div class="card-rating">
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
@@ -206,6 +215,7 @@
                         <h2 class="section-title">Les plus populaires</h2>
                         <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
                     </div>
+                    <!-- 3 cartes empilées en desktop, alignées sur une ligne en tablette -->
                     <div class="populaires-cards">
                         <a href="#">
                             <article class="card">
@@ -271,6 +281,7 @@
             <!-- Section Activités à Marseille -->
             <section class="activites" id="activites">
                 <h2 class="section-title">Activités à Marseille</h2>
+                <!-- 4 cartes qui se partagent la largeur à parts égales -->
                 <div class="activites-cards">
                     <a href="#" class="activites-card-link">
                         <article class="card">
@@ -308,7 +319,7 @@
             </section>
         </main>
 
-        <!-- Pied de page -->
+        <!-- Pied de page / 3 colonnes de liens -->
         <footer>
             <div class="footer-column">
                 <h3 class="footer-title">À propos</h3>

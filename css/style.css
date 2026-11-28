@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+/* Couleurs de la charte Booki */
 :root {
     --main-color: #0065FC;
     --main-bg-color: #F2F2F2;
@@ -11,10 +12,12 @@
     --border-color: #D9D9D9;
 }
 
+/* Toutes les icônes en bleu par défaut (surchargé plus bas pour certaines) */
 .fa-solid {
     color: var(--main-color);
 }
 
+/* body en flex pour centrer le conteneur, qui ne dépasse jamais 1440px */
 body {
     margin: 0;
     display: flex;
@@ -38,6 +41,7 @@ a {
     font-size: 22px;
 }
 
+/* Base commune aux 13 cartes, ajustée ensuite selon la section (.hebergements-cards .card, etc.) */
 .card {
     background-color: white;
     border-radius: 20px;
@@ -57,11 +61,12 @@ a {
     font-weight: 700;
 }
 
+/* 5e étoile grise / même spécificité que .fa-solid, elle gagne car elle est écrite après */
 .neutral-star {
     color: var(--main-bg-color);
 }
 
-/* Accessibilité : masquer le texte visuellement tout en le rendant lisible par les lecteurs d'écran */
+/* Accessibilité / masquer le texte visuellement tout en le rendant lisible par les lecteurs d'écran */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -91,6 +96,7 @@ header {
     gap: 68px;
 }
 
+/* Bordure transparente dès le départ / au survol seule la couleur change, le texte ne bouge pas */
 .nav-link {
     padding-top: 15px;
     border-top: 2px solid transparent;
@@ -124,6 +130,7 @@ header {
     margin: 0;
 }
 
+/* inline-flex / le formulaire prend seulement la largeur de son contenu */
 .search-form {
     display: inline-flex;
     height: 49px;
@@ -142,6 +149,7 @@ header {
     border-radius: 15px 0 0 15px;
 }
 
+/* Icône de localisation en noir / 2 classes, donc plus spécifique que .fa-solid */
 .search-icon-location .fa-location-dot {
     color: #000000;
     font-size: 18px;
@@ -177,8 +185,11 @@ header {
     opacity: 0.9;
 }
 
+/* Loupe cachée en desktop (affichée en mobile).
+   En blanc, sinon elle hérite du bleu de .fa-solid et disparaît sur le bouton bleu */
 .search-button-icon {
     display: none;
+    color: white;
 }
 
 .filters {
@@ -217,6 +228,7 @@ header {
     font-family: 'Raleway', sans-serif;
 }
 
+/* Fond bleu clair au survol, demandé dans la note de synthèse */
 .filter-item:hover {
     background-color: var(--filter-bg-color);
 }
@@ -239,7 +251,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    flex-shrink: 0; /* le cercle ne se fait jamais écraser par le texte */
 }
 
 .info-icon .fa-info {
@@ -252,6 +264,7 @@ header {
 }
 
 /****** Hebergements And Populaires ***********/
+/* Les deux sections côte à côte (65% / 32%), flex-shrink les fait tenir avec le gap */
 .hebergements-and-populaires {
     display: flex;
     justify-content: space-between;
@@ -273,6 +286,7 @@ header {
     justify-content: space-between;
 }
 
+/* Grid ici car c'est une vraie grille 2D / 3 colonnes de même largeur */
 .hebergements-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -281,6 +295,7 @@ header {
     margin-bottom: 30px;
 }
 
+/* Cartes de même hauteur, et le contenu s'étire pour garder les étoiles en bas */
 .hebergements-cards .card {
     display: flex;
     flex-direction: column;
@@ -371,6 +386,7 @@ header {
     margin-top: 30px;
 }
 
+/* flex: 1 / les 4 cartes se partagent la largeur à parts égales */
 .activites-card-link {
     flex: 1;
     display: flex;
@@ -435,11 +451,11 @@ footer {
     text-decoration: underline;
 }
 
-/* Le code ci-dessous correspond à la version responsive uniquement */
+/* Version responsive */
 
 /****** Media queries ***********/
 
-/* Medium devices (tablets, less/equal than 1024px) */
+/* Tablette / de 768px à 1024px inclus */
 @media (max-width: 1024px) {
     .hebergements-and-populaires {
         flex-direction: column;
@@ -454,6 +470,7 @@ footer {
         margin-top: 50px;
     }
 
+    /* Les 3 cartes populaires passent sur une seule ligne */
     .populaires-cards {
         display: flex;
         flex-direction: row;
@@ -481,7 +498,8 @@ footer {
     }
 }
 
-/* Small devices (phones, less than 768px) */
+/* Mobile / moins de 768px.
+   767.98 et pas 767, avec le zoom, la largeur peut être fractionnaire (ex. 767.5px) */
 @media (max-width: 767.98px) {
     .main-container {
         padding: 0;
@@ -502,6 +520,7 @@ footer {
         gap: 0;
     }
 
+    /* Le soulignement passe du haut vers le bas */
     .nav-link {
         width: 50%;
         text-align: center;
@@ -534,6 +553,7 @@ footer {
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
+    /* Le texte "Rechercher" est remplacé par la loupe */
     .search-button-text {
         display: none;
     }
@@ -552,7 +572,7 @@ footer {
         padding: 0 15px;
     }
 
-    /* Inversion de l'ordre : Populaires passe avant Hébergements sur mobile */
+    /* Inversion de l'ordre / Populaires passe avant Hébergements sur mobile */
     .hebergements-and-populaires {
         flex-direction: column-reverse;
         gap: 0;
@@ -563,7 +583,8 @@ footer {
         padding: 30px 20px;
     }
 
-    .hebergements {
+    /* 2 classes pour battre ".hebergements-and-populaires section" et retirer le fond gris */
+    .hebergements-and-populaires .hebergements {
         background-color: transparent;
     }
 
